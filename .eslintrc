@@ -1,0 +1,22 @@
+// 2: error,
+// 1: warning
+// 0P: clsoe
+{
+  "extends": ["umi", "prettier"],
+  "parser": "babel-eslint",
+  "rules": {
+    "quotes": "off",
+    "semi": 1,
+    "no-unused-vars": 1,
+    "react/jsx-pascal-case": 0,
+    "no-restricted-globals": 1,
+    "no-undef": 1
+    // "prettier/prettier": [
+    //   "error",
+    //   {
+    //     "printWidth": 200,
+    //     "semi": true
+    //   }
+    // ]
+  }
+}

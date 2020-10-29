@@ -1,0 +1,14 @@
+{
+  "presets": ["env", "react", "stage-3"],
+  "plugins": [
+    "transform-decorators-legacy",
+    "transform-class-properties",
+    "transform-async-generator-functions",
+    "transform-async-to-generator",
+  ],
+  "env": {
+    "production": {
+      "plugins": ["transform-remove-console"]
+    }
+  }
+}

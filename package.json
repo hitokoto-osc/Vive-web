@@ -9,7 +9,7 @@
     "pure-dev": "webpack-dev-server --env.dev"
   },
   "dependencies": {
-    "react": "16.8.0",
+    "react": "16.14.0",
     "react-dom": "^16.8.0",
     "react-use": "^13.3.0"
   },

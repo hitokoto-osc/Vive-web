@@ -1,0 +1,50 @@
+@light: #cecece;
+.list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  .listItem {
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: column;
+    .info {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      .avatar {
+        border-radius: 25px;
+        width: 50px;
+        height: 50px;
+        background: #da9462;
+      }
+      .name {
+        margin-left: 10px;
+        font-size: 14px;
+        color: #2b2b2b;
+      }
+    }
+    .comment {
+      margin-left: 60px;
+      color: #797979;
+    }
+    .line {
+      margin: 0 auto;
+      margin-top: 6px;
+      width: 80%;
+      height: 1px;
+      background: #dadada;
+    }
+  }
+}
+.light {
+  .listItem {
+    .info {
+      .name {
+        color: @light;
+      }
+    }
+    .comment {
+      color: #bfbfbf;
+    }
+  }
+}

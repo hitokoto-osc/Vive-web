@@ -1,0 +1,62 @@
+@lightColor: #cecece;
+@lightBorder: rgba(255, 255, 255, 0.6);
+.content {
+  display: flex;
+  font-family: inherit;
+  flex-wrap: wrap;
+  textarea {
+    display: block;
+    border: 1px solid rgba(115, 115, 115, 0.2);
+    margin: 0 auto;
+    padding: 10px;
+    width: 100%;
+    min-height: 100px;
+    max-height: 200px;
+    color: #424242;
+    font-size: 14px;
+    resize: none;
+    font-family: inherit;
+    background: transparent;
+  }
+  textarea:focus {
+    outline: none;
+  }
+  .footer {
+    position: relative;
+    width: 100%;
+    display: flex;
+    .item:nth-of-type(1) {
+      i {
+        font-size: 22px;
+      }
+    }
+    .item {
+      width: 20px;
+      height: 20px;
+      padding: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.5s;
+      cursor: pointer;
+      i {
+        font-size: 16px;
+      }
+    }
+    .item:nth-of-type(3) {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    .item:active {
+      background: #888484;
+      color: white;
+    }
+  }
+}
+.light {
+  textarea {
+    color: @lightColor;
+    border-color: @lightBorder;
+  }
+}

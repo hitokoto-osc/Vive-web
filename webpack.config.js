@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const LIBRARYNAME = 'Vive';
 
@@ -39,13 +38,8 @@ module.exports = {
     alias: {
       '@': path.resolve(__dirname, 'src/'),
     },
-    extensions: ['.js', '.jsx', '.css', '.less'],
+    extensions: ['.png', '.js', '.jsx', '.css', '.less'],
   },
-  stats: {
-    children: false,
-    warningsFilter: (warn) => warn.indexOf('Conflicting order between:') > -1,
-  },
-
   module: {
     rules: [
       {
@@ -53,19 +47,6 @@ module.exports = {
         include: [path.resolve(__dirname, 'src')],
         use: ['source-map-loader', 'babel-loader', 'eslint-loader'],
         exclude: /node_modules/,
-      },
-      {
-        test: /\.css$/,
-        use: [
-          'css-hot-loader',
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-            },
-          },
-        ],
       },
       {
         test: /\.less$/,
@@ -109,11 +90,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: '[name].css',
-      ignoreOrder: true,
-    }),
-    new webpack.HotModuleReplacementPlugin(),
-  ],
+  plugins: [new webpack.HotModuleReplacementPlugin()],
 };

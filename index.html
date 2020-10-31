@@ -4,6 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      #root {
+        width: 600px;
+        min-height: 400px;
+        margin: 100px auto;
+        /* background: black; */
+      }
+    </style>
   </head>
   <body>
     <script src="./dist/Vive.min.js"></script>
@@ -11,6 +23,8 @@
     <script>
       const vive = new window.Vive({
         container: '#root',
+        placeholder: 'hello vive',
+        theme: 'dark'
       });
       console.log('vive', vive);
     </script>

@@ -1,0 +1,41 @@
+@light: #cecece;
+
+.input {
+  position: relative;
+  margin-bottom: 10px;
+  .name {
+    position: absolute;
+    top: 50%;
+    font-size: 13px;
+    margin-top: -13.5px;
+    height: 27px;
+    color: #6b6b6b;
+    transform: translate3d(5px, 0px, 0);
+    transition: transform 0.5s;
+  }
+  .focus {
+    transform: translate3d(0, -13px, 0);
+  }
+  input {
+    border: none;
+    border-bottom: 1px solid rgba(115, 115, 115, 0.2);
+    padding-left: 5px;
+    padding-bottom: 3px 10px;
+    min-width: 220px;
+    height: 26px;
+    color: #424242;
+    background: transparent;
+  }
+  input:focus {
+    outline: none;
+  }
+}
+.light {
+  input {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+    color: @light;
+  }
+  .name {
+    color: @light;
+  }
+}

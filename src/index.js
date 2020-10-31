@@ -1,7 +1,9 @@
+import React from 'react';
 import ReactDom from 'react-dom';
+import { ProviderCtx } from '@/util/context';
 import ViveComponent from './component/vive';
 import ViveError from './lib/error';
-import { MAP_ERROR_MSG } from './lib/constant';
+import { MAP_ERROR_MSG, THEME } from './lib/constant';
 
 module.exports = class Vive {
   constructor(config) {
@@ -10,6 +12,12 @@ module.exports = class Vive {
   }
   check() {
     try {
+      if (this.config.theme) {
+        if (!THEME.includes(this.config.theme)) {
+          const err = `theme should be one of ${THEME.join(',')}`;
+          throw new ViveError(4, MAP_ERROR_MSG.THEME_TYPE + err);
+        }
+      }
       if (!document) {
         throw new ViveError(3, MAP_ERROR_MSG.RUNTIME_ERROR);
       }
@@ -29,7 +37,13 @@ module.exports = class Vive {
   }
   init() {
     try {
-      ReactDom.render(ViveComponent(), this.config.container);
+      const { container, ...props } = this.config;
+      ReactDom.render(
+        <ProviderCtx.Provider value={props}>
+          <ViveComponent props={props} />
+        </ProviderCtx.Provider>,
+        this.config.container,
+      );
     } catch (error) {
       console && console.error('Vive-init-error', error);
     }

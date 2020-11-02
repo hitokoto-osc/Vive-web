@@ -1,12 +1,27 @@
+@lightColor: #6b6b6b;
 .preview {
+  position: relative;
   border-top: 1px solid rgba(115, 115, 115, 0.2);
   padding: 10px;
+  padding-top: 20px;
   width: 100%;
   transform: translate3d(0, 30px, 0);
   opacity: 0;
   animation: show 0.5s forwards;
+  p {
+    display: flex;
+    flex-wrap: wrap;
+    line-height: 30px;
+  }
 }
-
+.preview::after {
+  content: attr(data);
+  position: absolute;
+  top: 0;
+  left: -1px;
+  font-size: 13px;
+  color: @lightColor;
+}
 @keyframes show {
   from {
     transform: translate3d(0, 30px, 0);

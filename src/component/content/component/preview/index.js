@@ -1,5 +1,6 @@
 import React from 'react';
 import showdown from 'showdown';
+import { replaceEmoji } from './util';
 
 import styles from './index.less';
 
@@ -9,7 +10,10 @@ export default ({ value }) => {
   return (
     <div
       className={styles.preview}
-      dangerouslySetInnerHTML={{ __html: converter.makeHtml(value || '') }}
+      data="preview："
+      dangerouslySetInnerHTML={{
+        __html: converter.makeHtml(replaceEmoji(value) || ''),
+      }}
     />
   );
 };

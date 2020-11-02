@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { getCache, setTheme } from '@/util/util';
+import { replaceEmoji } from '../preview/util';
 import showdown from 'showdown';
 
 import styles from './index.less';
 
 const converter = new showdown.Converter();
 
-export default () => {
+export default memo(() => {
   const data = getCache('vive-list') || [];
   return (
     <div className={setTheme(styles.list, styles)}>
@@ -18,11 +19,13 @@ export default () => {
           </div>
           <div
             className={styles.comment}
-            dangerouslySetInnerHTML={{ __html: converter.makeHtml(comment) }}
+            dangerouslySetInnerHTML={{
+              __html: converter.makeHtml(replaceEmoji(comment)),
+            }}
           ></div>
           <div className={styles.line} />
         </div>
       ))}
     </div>
   );
-};
+});

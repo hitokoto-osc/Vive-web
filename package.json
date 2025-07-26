@@ -29,7 +29,7 @@
     "@types/react-dom": "^16.8.0",
     "awesome-typescript-loader": "^5.2.1",
     "babel-core": "^6.26.3",
-    "babel-eslint": "^10.1.0",
+    "@babel/eslint-parser": "^7.11.0",
     "babel-loader": "^7.1.5",
     "babel-plugin-dva-hmr": "^0.3.2",
     "babel-plugin-import": "^1.11.0",

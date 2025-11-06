@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
-import { setTheme } from '@/util/util';
-import styles from './index.less';
+import React, { useState } from "react";
+import { setTheme } from "@/util/util";
+import styles from "./index.less";
 
-export default ({ name, code, onChange, value }) => {
+export const Input: React.FC<IInputProps> = ({
+  name,
+  code,
+  onChange,
+  value,
+}) => {
   const [status, setStatus] = useState(false);
   const classname = `${styles.name} ${(value || status) && styles.focus}`;
   return (

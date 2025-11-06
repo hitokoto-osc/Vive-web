@@ -1,0 +1,3 @@
+interface IPreview {
+  value?: string;
+}

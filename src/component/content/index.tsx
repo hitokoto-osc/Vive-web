@@ -4,34 +4,33 @@ import React, {
   forwardRef,
   useContext,
   useRef,
-} from 'react';
-import { ProviderCtx } from '@/util/context';
-import { setTheme } from '@/util/util';
-import Preview from './component/preview';
-import List from './component/list';
-import Emoji from './component/emoji';
-import { EMOJI_PREFIX } from './component/emoji/constant';
+} from "react";
+import { ProviderCtx } from "@/util/context";
+import { setTheme } from "@/util/util";
+import { Preview } from "./component/preview";
+import { List } from "./component/list";
+import { Emoji } from "./component/emoji";
+import { EMOJI_PREFIX } from "./component/emoji/constant";
 
-import styles from './index.less';
+import styles from "./index.less";
 
-export default forwardRef((props, ref) => {
-  const [data, setData] = useState();
+export const Content: React.FC<any> = forwardRef((props, ref) => {
+  const [data, setData] = useState<string>();
   // const [viewData, setviewData] = useState();
   const [preview, setVisible] = useState(true);
   const [emojiVisible, setEmojiVisible] = useState(false);
-  const ref1 = useRef();
   useImperativeHandle(ref, () => ({ getData: () => data }));
-  const { placeholder = '' } = useContext(ProviderCtx);
+  const { placeholder = "" } = useContext(ProviderCtx);
   const { onSubmit } = props;
-  const onAdd = (code) => {
-    setData(`${data || ''}${EMOJI_PREFIX}${code}${EMOJI_PREFIX}`);
+  const onAdd = (code: string) => {
+    setData(`${data || ""}${EMOJI_PREFIX}${code}${EMOJI_PREFIX}`);
   };
+
   return (
     <div className={setTheme(styles.content, styles)}>
       <textarea
         value={data}
         onChange={(e) => setData(e.target.value)}
-        ref={ref1}
         autoFocus
         placeholder={placeholder}
       />

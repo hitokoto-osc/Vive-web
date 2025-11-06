@@ -1,0 +1,17 @@
+import { EmojiInner } from "./component/emoji";
+import { TextEmoji } from "./component/textEmoji";
+
+export const EMOJI_PREFIX = "::";
+
+export const EMOJI_TYPE = [
+  {
+    code: "emoji",
+    component: () => EmojiInner,
+    text: "emoji表情",
+  },
+  {
+    code: "textEmoji",
+    text: "颜表情",
+    component: () => TextEmoji,
+  },
+];

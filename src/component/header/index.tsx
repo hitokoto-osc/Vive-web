@@ -1,8 +1,8 @@
-import React from 'react';
-import { setTheme } from '@/util/util';
-import styles from './index.less';
+import React from "react";
+import { setTheme } from "@/util/util";
+import styles from "./index.less";
 
-export default () => {
+export const Header: React.FC<any> = () => {
   return (
     <div className={setTheme(styles.header, styles)}>
       {/* &copy; */}

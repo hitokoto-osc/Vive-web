@@ -1,14 +1,14 @@
-import React, { memo } from 'react';
-import { getCache, setTheme } from '@/util/util';
-import { replaceEmoji } from '../preview/util';
-import showdown from 'showdown';
+import React, { memo } from "react";
+import { getCache, setTheme } from "@/util/util";
+import { replaceEmoji } from "../preview/util";
+import showdown from "showdown";
 
-import styles from './index.less';
+import styles from "./index.less";
 
 const converter = new showdown.Converter();
 
-export default memo(() => {
-  const data = getCache('vive-list') || [];
+export const List: React.FC<any> = memo(() => {
+  const data = getCache<IViveData[]>("vive-list") || [];
   return (
     <div className={setTheme(styles.list, styles)}>
       {data.map(({ name, site, comment, email }) => (
